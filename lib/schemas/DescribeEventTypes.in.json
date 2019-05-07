@@ -1,0 +1,107 @@
+{
+    "type": "object",
+    "properties": {
+        "maxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "nextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "filter": {
+                    "description": "Values to narrow the results returned.",
+                    "properties": {
+                        "eventTypeCategories": {
+                            "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>).",
+                            "items": {
+                                "enum": [
+                                    "issue",
+                                    "accountNotification",
+                                    "scheduledChange"
+                                ],
+                                "maxLength": 255,
+                                "minLength": 3,
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "eventTypeCodes": {
+                            "description": "A list of event type codes.",
+                            "items": {
+                                "maxLength": 100,
+                                "minLength": 3,
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "services": {
+                            "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.",
+                            "items": {
+                                "maxLength": 30,
+                                "minLength": 2,
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "locale": {
+                    "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+                    "maxLength": 256,
+                    "minLength": 2,
+                    "type": "string"
+                },
+                "maxResults": {
+                    "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+                    "maximum": 100,
+                    "minimum": 10,
+                    "type": "integer"
+                },
+                "nextToken": {
+                    "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+                    "pattern": "[a-zA-Z0-9=/+_.-]{4,512}",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

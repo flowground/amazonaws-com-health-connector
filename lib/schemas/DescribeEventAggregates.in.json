@@ -1,0 +1,262 @@
+{
+    "type": "object",
+    "properties": {
+        "maxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "nextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "aggregateField": {
+                    "description": "The only currently supported value is <code>eventTypeCategory</code>.",
+                    "enum": [
+                        "eventTypeCategory"
+                    ],
+                    "type": "string"
+                },
+                "filter": {
+                    "description": "Values to narrow the results returned.",
+                    "properties": {
+                        "availabilityZones": {
+                            "description": "A list of AWS availability zones.",
+                            "items": {
+                                "pattern": "[a-z]{2}\\-[0-9a-z\\-]{4,16}",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "endTimes": {
+                            "description": "A list of dates and times that the event ended.",
+                            "items": {
+                                "description": "A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.",
+                                "properties": {
+                                    "from": {
+                                        "description": "The starting date and time of a time range.",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    },
+                                    "to": {
+                                        "description": "The ending date and time of a time range.",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "entityArns": {
+                            "description": "A list of entity ARNs (unique identifiers).",
+                            "items": {
+                                "maxLength": 1600,
+                                "type": "string"
+                            },
+                            "maxItems": 100,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "entityValues": {
+                            "description": "A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or EBS volumes (<code>vol-426ab23e</code>).",
+                            "items": {
+                                "maxLength": 256,
+                                "type": "string"
+                            },
+                            "maxItems": 100,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "eventArns": {
+                            "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> ",
+                            "items": {
+                                "maxLength": 1600,
+                                "pattern": "arn:aws:health:[^:]*:[^:]*:event(?:/[\\w-]+){3}",
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "eventStatusCodes": {
+                            "description": "A list of event status codes.",
+                            "items": {
+                                "enum": [
+                                    "open",
+                                    "closed",
+                                    "upcoming"
+                                ],
+                                "type": "string"
+                            },
+                            "maxItems": 6,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "eventTypeCategories": {
+                            "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>).",
+                            "items": {
+                                "enum": [
+                                    "issue",
+                                    "accountNotification",
+                                    "scheduledChange"
+                                ],
+                                "maxLength": 255,
+                                "minLength": 3,
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "eventTypeCodes": {
+                            "description": "A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\"</code> ",
+                            "items": {
+                                "maxLength": 100,
+                                "minLength": 3,
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "lastUpdatedTimes": {
+                            "description": "A list of dates and times that the event was last updated.",
+                            "items": {
+                                "description": "A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.",
+                                "properties": {
+                                    "from": {
+                                        "description": "The starting date and time of a time range.",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    },
+                                    "to": {
+                                        "description": "The ending date and time of a time range.",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "regions": {
+                            "description": "A list of AWS regions.",
+                            "items": {
+                                "pattern": "[^:/]{2,25}",
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "services": {
+                            "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.",
+                            "items": {
+                                "maxLength": 30,
+                                "minLength": 2,
+                                "type": "string"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "startTimes": {
+                            "description": "A list of dates and times that the event began.",
+                            "items": {
+                                "description": "A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.",
+                                "properties": {
+                                    "from": {
+                                        "description": "The starting date and time of a time range.",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    },
+                                    "to": {
+                                        "description": "The ending date and time of a time range.",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "maxItems": 10,
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "tags": {
+                            "description": "A map of entity tags attached to the affected entity.",
+                            "items": {
+                                "items": {
+                                    "properties": {
+                                        "key": {
+                                            "maxLength": 127,
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "maxLength": 255,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "maxItems": 50,
+                                "type": "array"
+                            },
+                            "maxItems": 50,
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "maxResults": {
+                    "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+                    "maximum": 100,
+                    "minimum": 10,
+                    "type": "integer"
+                },
+                "nextToken": {
+                    "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+                    "pattern": "[a-zA-Z0-9=/+_.-]{4,512}",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "aggregateField"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
