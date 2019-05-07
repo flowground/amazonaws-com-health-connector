@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) AWS Health APIs and Notifications MSP Connector
+# ![LOGO](logo.png) AWS Health APIs and Notifications **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the AWS Health APIs and Notifications API (version 2016-08-04).
+A generated **flow**ground connector for the AWS Health APIs and Notifications API (version 2016-08-04).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/health/2016-08-04/swagger.json<br/>
-Generated at: 2019-05-07T11:16:04+03:00
+Generated at: 2019-05-07T17:35:44+03:00
 
 ## API Description
 
@@ -97,7 +97,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-health-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-health-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
