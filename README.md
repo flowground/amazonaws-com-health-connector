@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the AWS Health APIs and Notifications API (version 2016-08-04).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/health/2016-08-04/swagger.json<br/>
-Generated at: 2019-05-07T17:35:44+03:00
+Generated at: 2019-07-08T14:12:58+03:00
 
 ## API Description
 
@@ -17,11 +17,12 @@ Supported authorization schemes:
 - API Key
 ## Actions
 
-### <p>Returns a list of entities that have been affected by the specified events, based on the specified filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the AWS service. Events that have impact beyond that of the affected entities, or where the extent of impact is unknown, include at least one entity indicating this.</p> <p>At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>
+### DescribeAffectedEntities
+<blockquote><p>Returns a list of entities that have been affected by the specified events, based on the specified filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the AWS service. Events that have impact beyond that of the affected entities, or where the extent of impact is unknown, include at least one entity indicating this.</p> <p>At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p></blockquote>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -30,7 +31,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Returns the number of entities that are affected by each of the specified events. If no events are specified, the counts of all affected entities are returned.
+### DescribeEntityAggregates
+> Returns the number of entities that are affected by each of the specified events. If no events are specified, the counts of all affected entities are returned.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -43,11 +45,12 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.
+### DescribeEventAggregates
+> Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.<br/>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -56,7 +59,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### <p>Returns detailed information about one or more specified events. Information includes standard event data (region, service, etc., as returned by <a>DescribeEvents</a>), a detailed event description, and possible additional metadata that depends upon the nature of the event. Affected entities are not included; to retrieve those, use the <a>DescribeAffectedEntities</a> operation.</p> <p>If a specified event cannot be retrieved, an error message is returned for that event.</p>
+### DescribeEventDetails
+<blockquote><p>Returns detailed information about one or more specified events. Information includes standard event data (region, service, etc., as returned by <a>DescribeEvents</a>), a detailed event description, and possible additional metadata that depends upon the nature of the event. Affected entities are not included; to retrieve those, use the <a>DescribeAffectedEntities</a> operation.</p> <p>If a specified event cannot be retrieved, an error message is returned for that event.</p></blockquote>
 
 #### Input Parameters
 * `Action` - _required_
@@ -69,11 +73,12 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.
+### DescribeEventTypes
+> Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.<br/>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -82,11 +87,12 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### <p>Returns information about events that meet the specified filter criteria. Events are returned in a summary form and do not include the detailed description, any additional metadata that depends on the event type, or any affected resources. To retrieve that information, use the <a>DescribeEventDetails</a> and <a>DescribeAffectedEntities</a> operations.</p> <p>If no filter criteria are specified, all events are returned. Results are sorted by <code>lastModifiedTime</code>, starting with the most recent.</p>
+### DescribeEvents
+<blockquote><p>Returns information about events that meet the specified filter criteria. Events are returned in a summary form and do not include the detailed description, any additional metadata that depends on the event type, or any affected resources. To retrieve that information, use the <a>DescribeEventDetails</a> and <a>DescribeAffectedEntities</a> operations.</p> <p>If no filter criteria are specified, all events are returned. Results are sorted by <code>lastModifiedTime</code>, starting with the most recent.</p></blockquote>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
